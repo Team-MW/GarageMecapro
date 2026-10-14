@@ -55,10 +55,10 @@ export default function BookingFormSection() {
         <div className="bg-white rounded-xl border border-slate-200 p-6 sm:p-10 shadow-sm">
           {/* Header */}
           <div className="text-center max-w-xl mx-auto mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold font-serif text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black font-display text-slate-900 tracking-tight">
               Prendre Rendez-vous à l'Atelier
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 mt-2">
+            <p className="text-xs sm:text-sm text-slate-500 mt-2 font-sans">
               Remplissez le formulaire ci-dessous ou échangez directement avec nous sur WhatsApp
             </p>
           </div>
@@ -68,16 +68,16 @@ export default function BookingFormSection() {
               <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold font-serif text-slate-900">
+              <h3 className="text-lg font-bold font-display text-slate-900">
                 Demande bien reçue !
               </h3>
-              <p className="text-xs text-slate-600">
+              <p className="text-xs text-slate-600 font-sans">
                 L'équipe du Garage Mecapro vous recontacte rapidement pour valider la date et le créneau.
               </p>
               <div className="pt-2 flex flex-col sm:flex-row gap-2 justify-center">
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="px-4 py-2 rounded-lg text-xs font-bold bg-slate-200 text-slate-800 hover:bg-slate-300 transition-colors"
+                  className="px-4 py-2 rounded-lg text-xs font-bold bg-slate-200 text-slate-800 hover:bg-slate-300 transition-colors font-display"
                 >
                   Autre demande
                 </button>
@@ -85,7 +85,7 @@ export default function BookingFormSection() {
                   href={getWhatsAppUrl(getWhatsAppMessage())}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-lg text-xs font-bold bg-emerald-600 text-white hover:bg-emerald-500 transition-colors inline-flex items-center justify-center gap-1.5"
+                  className="px-4 py-2 rounded-lg text-xs font-bold bg-emerald-600 text-white hover:bg-emerald-500 transition-colors inline-flex items-center justify-center gap-1.5 font-display"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>Envoyer sur WhatsApp</span>
@@ -93,10 +93,10 @@ export default function BookingFormSection() {
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 font-sans">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1 font-display">
                     Nom complet *
                   </label>
                   <input
@@ -111,7 +111,7 @@ export default function BookingFormSection() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1 font-display">
                     Téléphone *
                   </label>
                   <input
@@ -126,7 +126,7 @@ export default function BookingFormSection() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1 font-display">
                     Véhicule (Marque, Modèle) *
                   </label>
                   <input
@@ -141,7 +141,7 @@ export default function BookingFormSection() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1 font-display">
                     Plaque d'immatriculation (facultatif)
                   </label>
                   <input
@@ -155,7 +155,7 @@ export default function BookingFormSection() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1 font-display">
                     Prestation souhaitée *
                   </label>
                   <select
@@ -171,7 +171,7 @@ export default function BookingFormSection() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1 font-display">
                     Date souhaitée
                   </label>
                   <input
@@ -186,7 +186,7 @@ export default function BookingFormSection() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1 font-display">
                     Créneau horaire
                   </label>
                   <select
@@ -212,7 +212,7 @@ export default function BookingFormSection() {
                     />
                     <div className="flex items-center gap-1.5">
                       <Car className="w-4 h-4 text-brand-red" />
-                      <span className="text-xs font-bold text-slate-800">
+                      <span className="text-xs font-bold text-slate-800 font-display">
                         Besoin d'un véhicule de prêt gratuit
                       </span>
                     </div>
@@ -221,7 +221,7 @@ export default function BookingFormSection() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">
+                <label className="block text-xs font-bold text-slate-700 mb-1 font-display">
                   Description du problème ou symptômes observés
                 </label>
                 <textarea
@@ -237,7 +237,7 @@ export default function BookingFormSection() {
               <div className="pt-2 flex flex-col sm:flex-row gap-3">
                 <button
                   type="submit"
-                  className="flex-1 py-3 px-5 rounded-lg bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm"
+                  className="flex-1 py-3 px-5 rounded-lg bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm font-display tracking-wide uppercase text-[11px]"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Envoyer ma demande de RDV</span>
@@ -246,16 +246,16 @@ export default function BookingFormSection() {
                 <button
                   type="button"
                   onClick={handleWhatsAppSubmit}
-                  className="py-3 px-5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm"
+                  className="py-3 px-5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm font-display text-[11px]"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>Envoyer via WhatsApp</span>
                 </button>
               </div>
 
-              <div className="pt-2 text-center text-xs text-slate-500">
+              <div className="pt-2 text-center text-xs text-slate-500 font-sans">
                 <span>Pour une urgence le jour même, appelez l'atelier au </span>
-                <a href={getPhoneUrl()} className="font-bold text-brand-red hover:underline">
+                <a href={getPhoneUrl()} className="font-bold text-brand-red hover:underline font-display">
                   05 63 98 25 83
                 </a>
               </div>

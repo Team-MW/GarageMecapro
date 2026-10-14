@@ -23,7 +23,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
 };
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
     name: siteConfig.name,
-    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d",
+    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e",
     telephone: siteConfig.phone,
     address: {
       "@type": "PostalAddress",
@@ -64,9 +64,9 @@ export default function RootLayout({ children }) {
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Playfair Display for editorial serif, Inter for sans-serif, Caveat for realistic handwritten accents */}
+        {/* Montserrat & Plus Jakarta Sans matching the exact modern automotive MecaPro logo font */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap"
           rel="stylesheet"
         />
       </head>

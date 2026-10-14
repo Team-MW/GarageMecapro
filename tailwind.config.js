@@ -24,8 +24,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'Montserrat', 'system-ui', 'sans-serif'],
+        display: ['Montserrat', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
         script: ['Caveat', 'cursive'],
       },
       boxShadow: {

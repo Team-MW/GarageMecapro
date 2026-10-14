@@ -20,18 +20,18 @@ export default function EmergencyBanner() {
           </div>
 
           <div className="relative z-10 max-w-xl space-y-4">
-            <h2 className="text-3xl sm:text-4xl font-black font-serif text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black font-display text-white tracking-tight">
               Une Panne ou un Voyant Allumé ?
             </h2>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
               Ne prenez aucun risque sur la route. Nous identifions l'origine exacte du dysfonctionnement sans vous facturer de réparations superflues.
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
                 href={getPhoneUrl()}
-                className="bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs px-6 py-3.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm"
+                className="bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs px-6 py-3.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm font-display uppercase tracking-wide text-[11px]"
               >
                 <span>Appeler le 05 63 98 25 83</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -41,7 +41,7 @@ export default function EmergencyBanner() {
                 href={getWhatsAppUrl(whatsappMsg)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-neutral-800 hover:bg-neutral-700 text-white font-semibold text-xs px-5 py-3.5 rounded-lg border border-neutral-700 transition-colors flex items-center gap-2"
+                className="bg-neutral-800 hover:bg-neutral-700 text-white font-semibold text-xs px-5 py-3.5 rounded-lg border border-neutral-700 transition-colors flex items-center gap-2 font-display text-[11px]"
               >
                 <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Message WhatsApp direct</span>
@@ -49,7 +49,7 @@ export default function EmergencyBanner() {
             </div>
           </div>
 
-          {/* Red Handwritten Script Text matching CarZone "Trade In Drive Up" */}
+          {/* Red Handwritten Script Text */}
           <div className="absolute right-8 top-8 hidden lg:block text-right pointer-events-none">
             <span className="font-script text-4xl text-brand-red block leading-none rotate-[-4deg] drop-shadow">
               Diagnostic Rapide & Précis

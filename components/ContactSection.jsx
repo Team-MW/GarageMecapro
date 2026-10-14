@@ -10,10 +10,10 @@ export default function ContactSection() {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold font-serif text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black font-display text-slate-900 tracking-tight">
               Nous Trouver à Mazamet
             </h2>
-            <p className="text-xs text-slate-500 mt-1">
+            <p className="text-xs text-slate-500 mt-1 font-sans">
               Atelier situé au 16 Rue des Arts, 81200 Mazamet • Stationnement disponible
             </p>
           </div>
@@ -22,7 +22,7 @@ export default function ContactSection() {
             href={siteConfig.maps.directionsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-bold text-slate-900 hover:text-brand-red transition-colors inline-flex items-center gap-1 group"
+            className="text-xs font-bold text-slate-900 hover:text-brand-red transition-colors inline-flex items-center gap-1 group font-display"
           >
             <span>Ouvrir dans Google Maps</span>
             <Navigation className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -38,11 +38,11 @@ export default function ContactSection() {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold uppercase text-slate-500">Adresse de l'Atelier</h3>
-                  <p className="text-sm font-bold font-serif text-slate-900 mt-0.5">
+                  <h3 className="text-xs font-bold uppercase text-slate-500 font-display">Adresse de l'Atelier</h3>
+                  <p className="text-sm font-bold font-display text-slate-900 mt-0.5">
                     16 Rue des Arts, 81200 Mazamet
                   </p>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-500 mt-0.5 font-sans">
                     Accès facile avec parking client
                   </p>
                 </div>
@@ -55,14 +55,14 @@ export default function ContactSection() {
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold uppercase text-slate-500">Téléphone Direct</h3>
+                  <h3 className="text-xs font-bold uppercase text-slate-500 font-display">Téléphone Direct</h3>
                   <a
                     href={getPhoneUrl()}
-                    className="text-lg font-black text-slate-900 hover:text-brand-red transition-colors block mt-0.5"
+                    className="text-lg font-black text-slate-900 hover:text-brand-red transition-colors block mt-0.5 font-display"
                   >
                     05 63 98 25 83
                   </a>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-500 mt-0.5 font-sans">
                     Prise en charge et devis rapide
                   </p>
                 </div>
@@ -75,8 +75,8 @@ export default function ContactSection() {
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold uppercase text-slate-500">Horaires d'Ouverture</h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <h3 className="text-xs font-bold uppercase text-slate-500 font-display">Horaires d'Ouverture</h3>
+                  <p className="text-xs text-slate-500 mt-0.5 font-sans">
                     Accueil atelier du lundi au vendredi
                   </p>
                 </div>
@@ -85,8 +85,8 @@ export default function ContactSection() {
               <div className="space-y-2 pt-2 border-t border-slate-200">
                 {siteConfig.hours.map((h) => (
                   <div key={h.days} className="flex justify-between text-xs">
-                    <span className="font-medium text-slate-600">{h.days}</span>
-                    <span className="font-bold text-slate-900 bg-white px-2 py-0.5 rounded border border-slate-200">
+                    <span className="font-medium text-slate-600 font-sans">{h.days}</span>
+                    <span className="font-bold text-slate-900 bg-white px-2 py-0.5 rounded border border-slate-200 font-display">
                       {h.hours}
                     </span>
                   </div>

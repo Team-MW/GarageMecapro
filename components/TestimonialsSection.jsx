@@ -9,13 +9,13 @@ export default function TestimonialsSection() {
   return (
     <section id="avis" className="py-14 bg-[#ffffff] border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Header like CarZone */}
+        {/* Header with font-display */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold font-serif text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black font-display text-slate-900 tracking-tight">
               Ce Que Disent Nos Clients
             </h2>
-            <p className="text-xs text-slate-500 mt-1">
+            <p className="text-xs text-slate-500 mt-1 font-sans">
               Note certifiée Google : 4,0/5 sur 33 avis à Mazamet
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* 3 Review Cards matching CarZone layout */}
+        {/* 3 Review Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {reviews.map((r) => (
             <div
@@ -56,15 +56,15 @@ export default function TestimonialsSection() {
                   ))}
                 </div>
 
-                <p className="text-xs text-slate-600 leading-relaxed italic">
+                <p className="text-xs text-slate-600 leading-relaxed italic font-sans">
                   "{r.text}"
                 </p>
 
                 <div className="pt-1">
-                  <h3 className="text-xs font-bold text-slate-900">
+                  <h3 className="text-xs font-bold text-slate-900 font-display">
                     {r.name}
                   </h3>
-                  <p className="text-[10px] text-slate-400">
+                  <p className="text-[10px] text-slate-400 font-sans">
                     Avis vérifié Google • Mazamet
                   </p>
                 </div>

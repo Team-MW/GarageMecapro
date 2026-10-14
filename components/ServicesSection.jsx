@@ -16,7 +16,7 @@ export default function ServicesSection() {
       title: "Distribution & Embrayage",
       sub: "Kit complet, pompe à eau, volant moteur",
       price: "Devis clair & sans surprise",
-      image: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=700&q=80"
+      image: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=700&q=80"
     },
     {
       id: "entretien",
@@ -37,12 +37,12 @@ export default function ServicesSection() {
   return (
     <section id="services" className="py-14 bg-[#ffffff] border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Header like CarZone Featured Cars */}
+        {/* Header with modern font matching the logo */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-2">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold font-serif text-slate-900 tracking-tight flex items-baseline gap-3 flex-wrap">
+            <h2 className="text-2xl sm:text-3xl font-black font-display text-slate-900 tracking-tight flex items-baseline gap-3 flex-wrap">
               <span>Prestations Phares</span>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-sans">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                 SOIGNÉES & GARANTIES. PRÊTES POUR VOUS.
               </span>
             </h2>
@@ -57,7 +57,7 @@ export default function ServicesSection() {
           </a>
         </div>
 
-        {/* 4 Cards Grid like CarZone */}
+        {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((item) => (
             <div
@@ -69,12 +69,12 @@ export default function ServicesSection() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
                   />
                 </div>
 
                 <div className="p-4">
-                  <h3 className="text-base font-bold font-serif text-slate-900 leading-snug group-hover:text-brand-red transition-colors">
+                  <h3 className="text-base font-bold font-display text-slate-900 leading-snug group-hover:text-brand-red transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-xs text-slate-500 mt-1">
@@ -84,7 +84,7 @@ export default function ServicesSection() {
               </div>
 
               <div className="p-4 pt-0 flex items-center justify-between border-t border-slate-100 mt-2">
-                <span className="text-sm font-extrabold text-slate-900">
+                <span className="text-sm font-black text-slate-900">
                   {item.price}
                 </span>
                 <a
