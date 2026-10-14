@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { siteConfig, getPhoneUrl, getWhatsAppUrl } from "@/lib/site";
-import { Phone, MapPin, Clock, Mail, Heart, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Phone, MapPin, Clock, Heart, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -10,31 +11,31 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-neutral-850">
           {/* Column 1: Logo & Socials */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex flex-col">
-              <span className="text-2xl font-black italic tracking-tighter text-white font-sans">
+            <Link href="/" className="flex flex-col">
+              <span className="text-2xl font-black italic tracking-tighter text-white font-display">
                 Meca<span className="text-brand-red">Pro</span>
               </span>
-              <span className="text-[9px] uppercase font-bold tracking-widest text-slate-500 mt-0.5">
+              <span className="text-[9px] uppercase font-bold tracking-widest text-slate-500 mt-0.5 font-display">
                 MÉCANIQUE GÉNÉRALE • MAZAMET
               </span>
-            </div>
+            </Link>
 
-            <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-xs text-slate-400 leading-relaxed max-w-sm font-sans">
               Garage indépendant au 16 Rue des Arts à Mazamet. Recherche de la vraie panne, véhicule de courtoisie gratuit et réactivité garantie.
             </p>
 
             {/* Social Icons like CarZone */}
             <div className="flex items-center gap-2.5 pt-1">
-              <a href="#accueil" className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-600 transition-colors" aria-label="Facebook">
+              <a href="#" className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-600 transition-colors" aria-label="Facebook">
                 <Facebook className="w-3.5 h-3.5" />
               </a>
-              <a href="#accueil" className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-600 transition-colors" aria-label="Instagram">
+              <a href="#" className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-600 transition-colors" aria-label="Instagram">
                 <Instagram className="w-3.5 h-3.5" />
               </a>
-              <a href="#accueil" className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-600 transition-colors" aria-label="YouTube">
+              <a href="#" className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-600 transition-colors" aria-label="YouTube">
                 <Youtube className="w-3.5 h-3.5" />
               </a>
-              <a href="#accueil" className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-600 transition-colors" aria-label="LinkedIn">
+              <a href="#" className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-600 transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -42,43 +43,48 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider font-display">
               Navigation
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-xs font-medium">
               {siteConfig.navigation.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="hover:text-white transition-colors">
+                  <Link href={item.href} className="hover:text-white transition-colors">
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/rendez-vous" className="text-brand-red hover:underline font-bold">
+                  Prendre Rendez-vous
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Column 3: Prestations */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider font-display">
               Prestations
             </h4>
-            <ul className="space-y-2 text-xs">
-              <li><a href="#services" className="hover:text-white transition-colors">Diagnostic & Panne</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Distribution & Moteur</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Révision & Vidange</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Freinage & Sécurité</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Climatisation</a></li>
+            <ul className="space-y-2 text-xs font-medium">
+              <li><Link href="/services#diag" className="hover:text-white transition-colors">Diagnostic & Panne</Link></li>
+              <li><Link href="/services#meca" className="hover:text-white transition-colors">Distribution & Moteur</Link></li>
+              <li><Link href="/services#entretien" className="hover:text-white transition-colors">Révision & Vidange</Link></li>
+              <li><Link href="/services#freinage" className="hover:text-white transition-colors">Freinage & Sécurité</Link></li>
+              <li><Link href="/services#climatisation" className="hover:text-white transition-colors">Climatisation</Link></li>
             </ul>
           </div>
 
           {/* Column 4: Contact & Script Text */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider font-display">
               Atelier Mazamet
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2.5 text-xs">
               <li className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-brand-red flex-shrink-0" />
-                <a href={getPhoneUrl()} className="text-white font-bold hover:text-brand-red transition-colors">
+                <a href={getPhoneUrl()} className="text-white font-bold hover:text-brand-red transition-colors font-display">
                   05 63 98 25 83
                 </a>
               </li>
@@ -92,7 +98,7 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Handwritten script like CarZone "Good Cars Brighter Journeys" */}
+            {/* Handwritten script like CarZone */}
             <div className="pt-4">
               <span className="font-script text-3xl sm:text-4xl text-white/90 block leading-tight rotate-[-3deg]">
                 Des réparations justes, un vrai pro.
@@ -101,8 +107,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar like CarZone */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2">
+        {/* Bottom Bar */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2 font-display">
           <p>© {new Date().getFullYear()} Garage Mecapro. Tous droits réservés.</p>
           <p className="flex items-center gap-1 text-slate-400">
             <span>Mécanique passionnée à Mazamet</span>

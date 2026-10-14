@@ -1,11 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { siteConfig, getPhoneUrl } from "@/lib/site";
-import { Phone, Menu, X, ArrowRight, Search, Car, Wrench } from "lucide-react";
+import { Phone, Menu, X, ArrowRight, Car, Wrench } from "lucide-react";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 bg-[#000000] text-white">
@@ -13,13 +16,13 @@ export default function Navbar() {
       <div className="bg-[#0a0a0a] border-b border-neutral-800 py-1.5 px-4 text-xs">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5 text-slate-300 font-semibold tracking-wide uppercase text-[11px]">
+            <div className="flex items-center gap-1.5 text-slate-300 font-semibold tracking-wide uppercase text-[11px] font-display">
               <Car className="w-4 h-4 text-slate-400" />
               <span>GARAGE AUTOMOBILE</span>
             </div>
             <a
               href={getPhoneUrl()}
-              className="bg-brand-red hover:bg-brand-redHover text-white font-bold text-[11px] px-3 py-1 rounded-full flex items-center gap-1 transition-colors"
+              className="bg-brand-red hover:bg-brand-redHover text-white font-bold text-[11px] px-3 py-1 rounded-full flex items-center gap-1 transition-colors font-display"
             >
               <span>{siteConfig.phone}</span>
               <ArrowRight className="w-3 h-3" />
@@ -40,58 +43,53 @@ export default function Navbar() {
 
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Logo styled like CarZone */}
-        <a href="#accueil" className="flex flex-col group">
-          <div className="text-2xl sm:text-3xl font-black italic tracking-tighter leading-none text-white font-sans">
+        {/* Logo */}
+        <Link href="/" className="flex flex-col group">
+          <div className="text-2xl sm:text-3xl font-black italic tracking-tighter leading-none text-white font-display">
             Meca<span className="text-brand-red">Pro</span>
           </div>
-          <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-0.5">
+          <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-0.5 font-display">
             MÉCANIQUE GÉNÉRALE • MAZAMET
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8 text-xs font-semibold tracking-wide">
-          <a
-            href="#accueil"
-            className="text-white relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-red"
-          >
-            Accueil
-          </a>
-          <a href="#services" className="text-slate-300 hover:text-white transition-colors">
-            Services
-          </a>
-          <a href="#marques" className="text-slate-300 hover:text-white transition-colors">
-            Toutes Marques
-          </a>
-          <a href="#engagements" className="text-slate-300 hover:text-white transition-colors">
-            Engagements
-          </a>
-          <a href="#avis" className="text-slate-300 hover:text-white transition-colors">
-            Avis Clients
-          </a>
-          <a href="#contact" className="text-slate-300 hover:text-white transition-colors">
-            Contact
-          </a>
+        <nav className="hidden lg:flex items-center gap-8 text-xs font-bold tracking-wide font-display">
+          {siteConfig.navigation.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`py-1 transition-colors relative ${
+                  isActive
+                    ? "text-white after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-red"
+                    : "text-slate-300 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right CTA */}
         <div className="hidden sm:flex items-center gap-4">
           <a
-            href="#recherche"
-            className="text-slate-300 hover:text-white transition-colors p-1.5"
-            aria-label="Recherche"
+            href={getPhoneUrl()}
+            className="text-xs font-bold text-slate-300 hover:text-white transition-colors flex items-center gap-1.5 font-display"
           >
-            <Search className="w-4 h-4" />
+            <Phone className="w-3.5 h-3.5 text-brand-red" />
+            <span>05 63 98 25 83</span>
           </a>
 
-          <a
-            href="#rendez-vous"
-            className="bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs px-5 py-2.5 rounded-full flex items-center gap-2 transition-colors shadow-sm"
+          <Link
+            href="/rendez-vous"
+            className="bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs px-5 py-2.5 rounded-full flex items-center gap-2 transition-colors shadow-sm font-display tracking-wide uppercase text-[11px]"
           >
             <span>Prendre RDV</span>
             <ArrowRight className="w-3.5 h-3.5" />
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -115,36 +113,30 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-neutral-900 border-t border-neutral-800 px-5 py-4 space-y-3">
-          <nav className="flex flex-col space-y-2 text-sm font-medium">
-            <a href="#accueil" onClick={() => setMobileMenuOpen(false)} className="text-white py-1">
-              Accueil
-            </a>
-            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 py-1">
-              Services
-            </a>
-            <a href="#marques" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 py-1">
-              Toutes Marques
-            </a>
-            <a href="#engagements" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 py-1">
-              Engagements
-            </a>
-            <a href="#avis" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 py-1">
-              Avis Clients
-            </a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 py-1">
-              Contact
-            </a>
+        <div className="lg:hidden bg-neutral-900 border-t border-neutral-800 px-5 py-4 space-y-3 font-display">
+          <nav className="flex flex-col space-y-2 text-sm font-bold">
+            {siteConfig.navigation.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`py-1.5 ${
+                  pathname === item.href ? "text-brand-red" : "text-slate-300"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
           <div className="pt-3 border-t border-neutral-800 flex flex-col gap-2">
-            <a
-              href="#rendez-vous"
+            <Link
+              href="/rendez-vous"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-2.5 rounded-full bg-brand-red text-center text-xs font-bold text-white flex items-center justify-center gap-1.5"
+              className="w-full py-2.5 rounded-full bg-brand-red text-center text-xs font-bold text-white flex items-center justify-center gap-1.5 font-display tracking-wide uppercase"
             >
               <span>Prendre RDV en ligne</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
           </div>
         </div>
       )}
