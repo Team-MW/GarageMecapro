@@ -1,125 +1,102 @@
 "use client";
 
 import { siteConfig, getPhoneUrl } from "@/lib/site";
-import { Phone, ArrowRight, ShieldCheck, Car, Clock, Search } from "lucide-react";
+import { Phone, ArrowRight, ShieldCheck, Car, Clock, Search, Star } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section id="accueil" className="bg-[#0b0c0e] text-white pt-8 sm:pt-12 pb-16 lg:pb-24 overflow-hidden relative border-b border-neutral-800">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left Column matching CarZone text hierarchy */}
-          <div className="lg:col-span-7 space-y-5">
-            {/* Tagline */}
-            <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400 font-display">
+    <section id="accueil" className="bg-[#0b0c0e] text-white pt-12 sm:pt-16 pb-16 lg:pb-24 overflow-hidden relative border-b border-neutral-800">
+      {/* Background Subtle Automotive Atmosphere */}
+      <div className="absolute inset-0 opacity-15 pointer-events-none">
+        <img
+          src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1920&q=80"
+          alt="Ambiance atelier Garage Mecapro"
+          className="w-full h-full object-cover object-right"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0b0c0e] via-[#0b0c0e]/95 to-[#0b0c0e]/60" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        <div className="max-w-4xl space-y-6">
+          {/* Tagline & Google Rating Pill */}
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-brand-red font-display">
               MÉCANIQUE DE PRÉCISION • EXPERT MAZAMET (81200)
-            </p>
-
-            {/* Title matching MecaPro logo font */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-white leading-[1.08]">
-              Trouvez Votre{" "}
-              <span className="text-brand-red italic block mt-0.5">
-                Vrai Mécanicien
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-xs sm:text-sm text-slate-300 max-w-lg leading-relaxed font-sans">
-              Au Garage Mecapro à Mazamet, nous cherchons la vraie cause de vos pannes mécaniques et électroniques sans vous faire changer de pièces inutilement. Véhicule de prêt gratuit et réactivité garantie.
-            </p>
-
-            {/* Buttons like CarZone */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <a
-                href="#rendez-vous"
-                className="bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs px-6 py-3.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm font-display tracking-wide uppercase text-[11px]"
-              >
-                <span>Prendre Rendez-vous</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-
-              <a
-                href={getPhoneUrl()}
-                className="bg-neutral-900/80 hover:bg-neutral-800 text-white font-bold text-xs px-5 py-3.5 rounded-lg border border-neutral-700 transition-colors flex items-center gap-2 font-display text-[11px] tracking-wide"
-              >
-                <Phone className="w-3.5 h-3.5 text-brand-red" />
-                <span>05 63 98 25 83</span>
-              </a>
-            </div>
-
-            {/* 4 Trust Icons Row */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-neutral-800/80">
-              <div className="flex items-center gap-2.5">
-                <ShieldCheck className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                <div>
-                  <h3 className="text-xs font-bold text-white leading-tight font-display">Mécano Passionné</h3>
-                  <p className="text-[10px] text-slate-400">Diagnostic rigoureux</p>
-                </div>
+            </span>
+            <span className="hidden sm:inline text-neutral-600">•</span>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs">
+              <div className="flex text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+                ))}
               </div>
-
-              <div className="flex items-center gap-2.5">
-                <Car className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                <div>
-                  <h3 className="text-xs font-bold text-white leading-tight font-display">Véhicule de Prêt</h3>
-                  <p className="text-[10px] text-slate-400">Offert pendant travaux</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2.5">
-                <Search className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                <div>
-                  <h3 className="text-xs font-bold text-white leading-tight font-display">Vraie Panne</h3>
-                  <p className="text-[10px] text-slate-400">Zéro pièce inutile</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2.5">
-                <Clock className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                <div>
-                  <h3 className="text-xs font-bold text-white leading-tight font-display">Délais Courts</h3>
-                  <p className="text-[10px] text-slate-400">Prise en charge rapide</p>
-                </div>
-              </div>
+              <span className="font-bold text-white text-[11px] font-display">4,0 / 5 (33 avis Google)</span>
             </div>
           </div>
 
-          {/* Right Column: Showroom car photo */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl">
-              <div className="aspect-[16/11] relative">
-                <img
-                  src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80"
-                  alt="Garage Mecapro Mazamet Atelier"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+          {/* Huge Main Title */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-display tracking-tight text-white leading-[0.98]">
+            Trouvez Votre{" "}
+            <span className="text-brand-red italic block mt-1">
+              Vrai Mécanicien
+            </span>
+          </h1>
 
-                {/* Showroom Window Logo Overlay */}
-                <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded border border-white/10 text-right">
-                  <div className="text-lg font-black italic tracking-tighter text-white leading-none font-display">
-                    Meca<span className="text-brand-red">Pro</span>
-                  </div>
-                  <span className="text-[8px] uppercase tracking-widest text-slate-300 font-display">
-                    MÉCANIQUE GÉNÉRALE
-                  </span>
-                </div>
+          {/* Subtitle */}
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed font-sans">
+            Au Garage Mecapro à Mazamet, nous cherchons l'origine réelle de vos pannes mécaniques et électroniques sans vous faire changer de pièces inutilement. Véhicule de prêt gratuit et réactivité garantie.
+          </p>
 
-                {/* Handwritten cursive note */}
-                <div className="absolute bottom-4 right-4 text-right pointer-events-none">
-                  <span className="font-script text-2xl sm:text-3xl text-white/90 leading-tight block drop-shadow-md">
-                    Votre voiture entre de bonnes mains
-                  </span>
-                </div>
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center gap-3.5 pt-2">
+            <a
+              href="#rendez-vous"
+              className="bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs sm:text-sm px-7 py-4 rounded-lg flex items-center gap-2.5 transition-colors shadow-sm font-display tracking-wide uppercase"
+            >
+              <span>Prendre Rendez-vous</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
 
-                {/* Left Bottom Badge */}
-                <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded border border-white/10">
-                  <span className="text-xs font-bold text-white block font-display">
-                    Garage Mecapro • Mazamet
-                  </span>
-                  <span className="text-[10px] text-amber-400 font-semibold">
-                    ★ 4,0/5 (33 avis Google certifiés)
-                  </span>
-                </div>
+            <a
+              href={getPhoneUrl()}
+              className="bg-neutral-900/90 hover:bg-neutral-800 text-white font-bold text-xs sm:text-sm px-6 py-4 rounded-lg border border-neutral-700 transition-colors flex items-center gap-2.5 font-display tracking-wide"
+            >
+              <Phone className="w-4 h-4 text-brand-red" />
+              <span>05 63 98 25 83</span>
+            </a>
+          </div>
+
+          {/* 4 Trust Icons Row */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-8 border-t border-neutral-800/80 max-w-3xl">
+            <div className="flex items-center gap-3">
+              <ShieldCheck className="w-6 h-6 text-slate-400 flex-shrink-0" />
+              <div>
+                <h3 className="text-xs sm:text-sm font-bold text-white leading-tight font-display">Mécano Passionné</h3>
+                <p className="text-[11px] text-slate-400">Diagnostic rigoureux</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Car className="w-6 h-6 text-slate-400 flex-shrink-0" />
+              <div>
+                <h3 className="text-xs sm:text-sm font-bold text-white leading-tight font-display">Véhicule de Prêt</h3>
+                <p className="text-[11px] text-slate-400">Offert pendant travaux</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Search className="w-6 h-6 text-slate-400 flex-shrink-0" />
+              <div>
+                <h3 className="text-xs sm:text-sm font-bold text-white leading-tight font-display">Vraie Panne</h3>
+                <p className="text-[11px] text-slate-400">Zéro pièce inutile</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Clock className="w-6 h-6 text-slate-400 flex-shrink-0" />
+              <div>
+                <h3 className="text-xs sm:text-sm font-bold text-white leading-tight font-display">Délais Courts</h3>
+                <p className="text-[11px] text-slate-400">Prise en charge rapide</p>
               </div>
             </div>
           </div>
